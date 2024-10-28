@@ -1,0 +1,44 @@
+@tailwind base;
+@layer base {
+  h1 {
+    @apply text-2xl;
+  }
+  h2 {
+    @apply text-2xl font-extrabold text-teal-500 mt-2;
+  }
+  h3 {
+    @apply text-xl text-amber-400 font-bold;
+  }
+  h4 {
+    @apply text-lg font-semibold text-teal-400;
+  }
+  input {
+    @apply text-black
+  }
+  label {
+    @apply pr-2
+  }
+  button {
+    @apply border border-teal-500 p-2 rounded min-w-12 font-semibold
+  }
+  select {
+    @apply text-black
+  }
+  hr {
+    @apply mt-3
+  }
+  code {
+    @apply font-mono text-teal-500
+  }
+  ul {
+    @apply pl-6
+  }
+  li {
+    @apply list-disc
+  }
+  li > ul > li {
+    @apply pl-2
+  }
+}
+@tailwind components;
+@tailwind utilities;
