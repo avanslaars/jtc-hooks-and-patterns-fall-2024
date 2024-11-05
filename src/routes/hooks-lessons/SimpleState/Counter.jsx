@@ -1,14 +1,14 @@
 import { useState } from "react"
 
 export function Counter() {
-	const [count, setCount] = useState(0)
+	const [count, setCount] = useState(10)
 
 	function handleIncrement() {
-		// TODO
+		setCount((c) => c + 1)
 	}
 
 	function handleDecrement() {
-		// TODO
+		setCount((c) => c - 1)
 	}
 
 	function handleMakeItFortyTwo() {

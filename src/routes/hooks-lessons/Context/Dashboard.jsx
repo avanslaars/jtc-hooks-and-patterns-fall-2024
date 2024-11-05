@@ -1,5 +1,8 @@
+import { useContext } from "react"
+import { useAuth } from "./AuthProvider"
+
 export function Dashboard() {
-	const isAuthenticated = false
+	const { isAuthenticated } = useAuth()
 
 	return (
 		<div>

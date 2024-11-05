@@ -5,6 +5,15 @@ import { drawCards } from "@/services"
 export function DeckOfCards() {
 	const [cards, setCards] = useState([])
 
+	useEffect(() => {
+		const getCards = async () => {
+			const cardResponse = await drawCards()
+			setCards(cardResponse.cards)
+		}
+
+		getCards()
+	}, [])
+
 	return (
 		<div>
 			Here's your hand:

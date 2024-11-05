@@ -1,27 +1,10 @@
 import { useState, useEffect } from "react"
-import { getWeather } from "@/services"
+import { useWeather } from "./useWeather"
 
 export function WeatherDisplay(props) {
 	const { location } = props
-	const [weather, setWeather] = useState(null)
-	const [isLoading, setIsLoading] = useState(true)
-	const [error, setError] = useState(null)
 
-	useEffect(() => {
-		const fetchWeather = async () => {
-			try {
-				setIsLoading(true)
-				const data = await getWeather(location)
-				setWeather(data)
-			} catch (err) {
-				setError(err.message)
-			} finally {
-				setIsLoading(false)
-			}
-		}
-
-		fetchWeather()
-	}, [location])
+	const { weather, isLoading, error } = useWeather(location)
 
 	if (isLoading) {
 		return <p>Loading...</p>

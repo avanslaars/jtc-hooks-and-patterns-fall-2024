@@ -6,8 +6,10 @@ export function LoggingStateUpdates() {
 	const [rando, setRando] = useState(createRandomNumber)
 
 	useEffect(() => {
-		// TODO
-	}, [])
+		console.log("A new random number was generated", rando)
+
+		return () => console.log("Cleaning up")
+	}, [rando])
 
 	function handleRandomClick() {
 		setRando(createRandomNumber)

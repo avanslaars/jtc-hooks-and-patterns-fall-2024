@@ -1,16 +1,19 @@
-function WeatherFeelsLike(props) {
+import { useWeather } from "./useWeather"
+
+export function WeatherFeelsLike(props) {
 	const { location } = props
 	// TODO: Replace placeholder values with real data
-	const weather = {
-		location: {
-			name: "Sample",
-		},
-		current: {
-			temp_f: 75,
-		},
-	}
-	const isLoading = false
-	const error = null
+	// const weather = {
+	// 	location: {
+	// 		name: "Sample",
+	// 	},
+	// 	current: {
+	// 		temp_f: 75,
+	// 	},
+	// }
+	// const isLoading = false
+	// const error = null
+	const { weather, isLoading, error } = useWeather(location)
 	if (isLoading) {
 		return <p>Checking for your weather in {location}</p>
 	}

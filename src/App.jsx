@@ -18,6 +18,8 @@ import {
 	CompoundComponents,
 	RenderProps,
 	HOCs,
+	GitHubForm,
+	ThemeSwitcher,
 } from "./routes"
 
 const router = createBrowserRouter([
@@ -51,12 +53,20 @@ const router = createBrowserRouter([
 						element: <Effects />,
 					},
 					{
+						path: "github-form",
+						element: <GitHubForm />,
+					},
+					{
 						path: "complex-state",
 						element: <ComplexState />,
 					},
 					{
 						path: "context-hook",
 						element: <ContextHook />,
+					},
+					{
+						path: "theme-switcher",
+						element: <ThemeSwitcher />,
 					},
 					{
 						path: "ref-hook",

@@ -10,6 +10,8 @@ export {
 	ContextHook,
 	Ref,
 	CustomHooks,
+	GitHubForm,
+	ThemeSwitcher,
 } from "./hooks-lessons"
 
 export {

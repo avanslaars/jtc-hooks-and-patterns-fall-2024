@@ -9,6 +9,7 @@ export { default as CustomHooks } from "./CustomHooks"
 export { default as Effects } from "./Effects"
 export { RulesOfHooks } from "./RulesOfHooks"
 export { default as Ref } from "./Ref"
+export { GitHubForm, ThemeSwitcher } from "./breakouts"
 
 export default function HooksLessons() {
 	return (

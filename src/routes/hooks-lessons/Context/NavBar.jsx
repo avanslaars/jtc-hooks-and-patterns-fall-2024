@@ -1,12 +1,15 @@
+import { useContext } from "react"
+import { useAuth } from "./AuthProvider"
+
 export function Navbar() {
-	const isAuthenticated = false
+	const { isAuthenticated, login, logout } = useAuth()
 
 	function handleLogin() {
-		// TODO
+		login()
 	}
 
 	function handleLogout() {
-		// TODO
+		logout()
 	}
 
 	return (
