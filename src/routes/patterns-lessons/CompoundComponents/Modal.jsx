@@ -1,19 +1,55 @@
+import { createContext, useState, useContext, useEffect } from "react"
+
+const ModalContext = createContext()
+
+export function useModal() {
+	const context = useContext(ModalContext)
+
+	useEffect(() => {
+		function handleEscapeKey(event) {
+			if (event.key === "Escape") {
+				context.closeModal()
+			}
+		}
+		document.addEventListener("keydown", handleEscapeKey)
+
+		return () => document.removeEventListener("keydown", handleEscapeKey)
+	}, [])
+
+	if (!context) {
+		throw new Error("useModal must be used within a Modal Provider")
+	}
+
+	return context
+}
+
 export function ModalProvider(props) {
 	const { children } = props
+	const [isOpen, setIsOpen] = useState(false)
 
-	return <>{children}</>
+	const openModal = () => setIsOpen(true)
+	const closeModal = () => setIsOpen(false)
+
+	const value = {
+		isOpen,
+		openModal,
+		closeModal,
+	}
+
+	return <ModalContext.Provider value={value}>{children}</ModalContext.Provider>
 }
 
 export function ModalTrigger(props) {
 	const { children } = props
+	const { openModal } = useModal()
 
-	return <button>{children}</button>
+	return <button onClick={openModal}>{children}</button>
 }
 
 export function Modal(props) {
 	const { children } = props
+	const { isOpen } = useModal()
 
-	const isOpen = false
 	return isOpen ? (
 		<OverlayDiv>
 			<ModalDiv>{children}</ModalDiv>
@@ -23,11 +59,12 @@ export function Modal(props) {
 
 export function ModalHeader(props) {
 	const { title } = props
+	const { closeModal } = useModal()
 
 	return (
 		<div className="text-slate-800 flex items-center">
 			<h2 className="flex-1 font-bolder text-3xl">{title}</h2>
-			<button>Close</button>
+			<button onClick={closeModal}>Close</button>
 		</div>
 	)
 }

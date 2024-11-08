@@ -11,21 +11,7 @@ export default function Context() {
 	return (
 		<div>
 			<ModalProvider>
-				<p>
-					Lorem ipsum dolor sit amet consectetur adipisicing elit. Itaque
-					reprehenderit porro reiciendis laudantium rem laborum quasi ea sed,
-					provident nostrum expedita temporibus repellendus error, atque neque
-					quisquam corrupti. Esse, cumque.
-				</p>
-
 				<ModalTrigger>Show Me the Modal</ModalTrigger>
-
-				<p>
-					Lorem ipsum dolor sit, amet consectetur adipisicing elit. Cum sed
-					eaque laborum, illo expedita vero placeat tenetur omnis inventore
-					maiores neque! Quo ipsa saepe possimus! Voluptates, debitis. Vel,
-					perferendis nemo.
-				</p>
 				<Modal>
 					<ModalHeader title="Sample Modal" />
 					<ModalBody>
