@@ -1,7 +1,9 @@
-// src/routes/patterns-lessons/Hocs/WithHoverExample.jsx
-
 import { Button } from "./Button"
 import { Image } from "./Image"
+import { withHover } from "./withHover"
+
+// const HoverButton = withHover(Button)
+// const HoverImage = withHover(Image)
 
 export function WithHoverExample() {
 	return (

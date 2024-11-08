@@ -3,10 +3,13 @@ import { describe, it, expect } from "vitest"
 import { render, screen } from "@testing-library/react"
 import userEvent from "@testing-library/user-event"
 import { SiteHeader } from "./SiteHeader"
+import { withProviders } from "./withProviders"
 
-describe.skip("SiteHeader", () => {
+const WrappedSiteHeader = withProviders(SiteHeader)
+
+describe("SiteHeader", () => {
 	it("Renders without error", () => {
-		render(<SiteHeader />)
+		render(<WrappedSiteHeader />)
 
 		expect(screen.getByText(/current theme: light/i)).toBeInTheDocument()
 	})
@@ -14,7 +17,7 @@ describe.skip("SiteHeader", () => {
 	it("Toggles the theme", async () => {
 		const user = userEvent.setup()
 
-		render(<SiteHeader />)
+		render(<WrappedSiteHeader />)
 
 		expect(screen.getByText(/current theme: light/i)).toBeInTheDocument()
 
@@ -26,7 +29,7 @@ describe.skip("SiteHeader", () => {
 	it("Logs in the user", async () => {
 		const user = userEvent.setup()
 
-		render(<SiteHeader />)
+		render(<WrappedSiteHeader />)
 
 		const loginButton = screen.getByText(/login/i)
 

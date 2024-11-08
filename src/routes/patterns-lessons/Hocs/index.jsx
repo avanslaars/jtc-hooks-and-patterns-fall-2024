@@ -1,4 +1,4 @@
-import { SiteHeaderExample } from "./multicontext/SiteHeaderExample"
+// import { SiteHeaderExample } from "./multicontext/SiteHeaderExample"
 import { WithHoverExample } from "./WithHoverExample"
 
 export default function Hocs() {
